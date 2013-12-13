@@ -6,9 +6,9 @@ though, provide usable output:
 
 ```
 Efficiency
-  Interval:    10.5 %
-  Cumulative:  15.0 %
+  Interval:      31.2 %
+  Cumulative:    18.9 %
 Requests
-  Interval:    19
-  Cumulative:  233
+  Interval:      16
+  Cumulative:   111
 ```

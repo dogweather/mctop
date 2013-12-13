@@ -19,7 +19,7 @@ def percent_change(a0, a1, b0, b1):
         return '-'
 
 
-# First version: Do simple polling reports
+# First version: Do a simple repeating report
 print "Interval is", interval, "seconds."
 mc = MemcachedStats()
 time_0   = mc.stats()
@@ -38,14 +38,17 @@ while True:
 
     print 'Efficiency'
     try:
-        print("  Interval:   %5.1f %%" % percent_change(hits_a, hits_b, misses_a, misses_b))
+        print("  Interval:     %5.1f %%" % percent_change(hits_a, hits_b, misses_a, misses_b))
     except:
-        print("  Interval:   -----")
-    print("  Cumulative: %5.1f %%" % percent_change(hits_0, hits_b, misses_0, misses_b))
+        print("  Interval:      ----")
+    try:
+        print("  Cumulative:   %5.1f %%" % percent_change(hits_0, hits_b, misses_0, misses_b))
+    except:
+        print('  Cumulative:    ----')
 
     print 'Requests'
-    print "  Interval:   ", (hits_b - hits_a) + (misses_b - misses_a)
-    print "  Cumulative: ", (hits_b - hits_0) + (misses_b - misses_0)
+    print "  Interval:   {0:>5}".format((hits_b - hits_a) + (misses_b - misses_a))
+    print "  Cumulative: {0:>5}".format((hits_b - hits_0) + (misses_b - misses_0))
 
     print " "
 
