@@ -7,7 +7,7 @@ import time
 from memcached_stats import MemcachedStats
 
 # Configuration
-interval = 20
+interval = 5
 
 
 def percent_change(a0, a1, b0, b1):
@@ -38,10 +38,10 @@ while True:
 
     print 'Efficiency'
     try:
-        print("  Interval:   %5.2f" % percent_change(hits_a, hits_b, misses_a, misses_b))
+        print("  Interval:   %5.1f %%" % percent_change(hits_a, hits_b, misses_a, misses_b))
     except:
         print("  Interval:   -----")
-    print("  Cumulative: %5.2f" % percent_change(hits_0, hits_b, misses_0, misses_b))
+    print("  Cumulative: %5.1f %%" % percent_change(hits_0, hits_b, misses_0, misses_b))
 
     print 'Requests'
     print "  Interval:   ", (hits_b - hits_a) + (misses_b - misses_a)
