@@ -3,6 +3,7 @@
 #
 
 import time
+# See https://github.com/dlrust/python-memcached-stats
 from memcached_stats import MemcachedStats
 
 # Configuration
