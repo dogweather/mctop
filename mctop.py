@@ -38,30 +38,32 @@ while True:
         misses_a = int(time_a['get_misses'])
         misses_b = int(time_b['get_misses'])
         
-        print 'Efficiency'
-        try:
-            print("  Interval:      {:>7.1%}".format(percent_change_in_interval(hits_a, hits_b, misses_a, misses_b)))
-        except:
-            print("  Interval:       ----")
+        print '              Efficiency   Requests'
 
         try:
-            print("  Cumulative:    {:>7.1%}".format(percent_change_in_interval(hits_0, hits_b, misses_0, misses_b)))
+            requests   = "{0:>10,}".format((hits_b - hits_a) + (misses_b - misses_a))
+            efficiency = "{:>10.1%}".format(percent_change_in_interval(hits_a, hits_b, misses_a, misses_b))
         except:
-            print('  Cumulative:     ----')
+            efficiency = "      ----"
+        print 'Interval:    ', t.bold(efficiency), t.bold(requests)
+
 
         try:
-            print("  Total:         {:>7.1%}".format(percent_change_in_interval(0, hits_b, 0, misses_b)))
+            requests   = "{0:>10,}".format((hits_b - hits_0) + (misses_b - misses_0))
+            efficiency = "{:>10.1%}".format(percent_change_in_interval(hits_0, hits_b, misses_0, misses_b))
         except:
-            print('  Total:          ----')
+            efficiency = "      ----"
+        print 'Cumulative:  ', t.bold(efficiency), t.bold(requests)
 
 
-        print 'Requests'
-        print "  Interval:   {0:>7,}".format((hits_b - hits_a) + (misses_b - misses_a))
-        print "  Cumulative: {0:>7,}".format((hits_b - hits_0) + (misses_b - misses_0))
-        print "  Total:      {0:>7,}".format(hits_b + misses_b)
-        
-        print " "
-        
+        try:
+            requests   = "{0:>10,}".format(hits_b + misses_b)
+            efficiency = "{:>10.1%}".format(percent_change_in_interval(0, hits_b, 0, misses_b))
+        except:
+            efficiency = "      ----"
+        print 'Total:       ', t.bold(efficiency), t.bold(requests)
+
+
         # Start the next interval at this one's end.
         time_a = time_b
 
