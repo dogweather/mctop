@@ -5,12 +5,10 @@ A top-like command line app for monitoring memcached. This is a very rough first
 though, provide usable output:
 
 ```
-Efficiency
-  Interval:      31.2 %
-  Cumulative:    18.9 %
-Requests
-  Interval:      16
-  Cumulative:   111
+              Efficiency   Requests
+Interval:          20.0%          5
+Cumulative:        29.4%         17
+Total:              3.6%    538,225
 ```
 
 
