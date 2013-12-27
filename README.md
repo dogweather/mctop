@@ -15,4 +15,4 @@ Total:              3.6%    538,225
 To Do
 -----
 
-Look into using [Urwid](http://excess.org/urwid/examples.html) for screen, colors, and font control. Also, [pythondialog](http://pythondialog.sourceforge.net/) might come in handy. Also, [blessings](https://pypi.python.org/pypi/blessings/).
+Try some [pythondialog](http://pythondialog.sourceforge.net/) for changing an option during runtime.
